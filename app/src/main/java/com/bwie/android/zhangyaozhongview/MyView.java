@@ -1,6 +1,7 @@
 package com.bwie.android.zhangyaozhongview;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -16,6 +17,7 @@ public class MyView extends View {
     private int circleY;
     //    圆的半径
     private int mRaduis = 100;
+    private int mColor = Color.BLUE;
 
     /**
      * new 一个控件时调用
@@ -39,7 +41,7 @@ public class MyView extends View {
      */
     public MyView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
+        init(context, attrs);
     }
 
     /*public MyView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
@@ -48,11 +50,22 @@ public class MyView extends View {
 
     /**
      * 初始化对象的方法
+     *
+     * @param context
+     * @param attrs
      */
-    private void init() {
+    private void init(Context context, AttributeSet attrs) {
+//        对自定义属性初始化
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MyView);
+        mRaduis = typedArray.getDimensionPixelSize(R.styleable.MyView_radius, 100);
+        mColor = typedArray.getColor(R.styleable.MyView_color, Color.BLUE);
+//        回收资源
+        if (typedArray != null) {
+            typedArray.recycle();
+        }
         paint = new Paint();
         //设置画笔颜色
-        paint.setColor(Color.BLUE);
+        paint.setColor(mColor);
 //        抗锯齿
         paint.setAntiAlias(true);
         //实心

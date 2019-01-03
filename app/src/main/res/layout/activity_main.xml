@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:myview="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
 
-    <com.bwie.android.zhangyaozhongview.MyView
+   <!-- <com.bwie.android.zhangyaozhongview.MyView
         android:id="@+id/mView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></com.bwie.android.zhangyaozhongview.MyView>
-</android.support.constraint.ConstraintLayout>
+        android:layout_height="wrap_content"
+        myview:color="@android:color/holo_red_dark"
+        myview:radius="300px"></com.bwie.android.zhangyaozhongview.MyView>
+-->
+    <com.bwie.android.zhangyaozhongview.CircleRoundImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/img_nature3" />
+
+</LinearLayout>
