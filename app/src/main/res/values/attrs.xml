@@ -3,6 +3,11 @@
     <declare-styleable name="MyView">
         <!--圆的半径-->
         <attr name="radius" format="dimension"></attr>
+        <!--圆的颜色-->
         <attr name="color" format="color"></attr>
+    </declare-styleable>
+    <declare-styleable name="SearchView">
+        <attr name="searchSize" format="dimension"></attr>
+        <attr name="searchColor" format="color"></attr>
     </declare-styleable>
 </resources>
